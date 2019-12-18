@@ -5,9 +5,16 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <router-view name="sub"/>
   </div>
 </template>
-
+<script>
+export default {
+  beforeMount() {
+    this.$store.dispatch('initFirebaseWatch');
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
