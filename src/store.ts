@@ -118,5 +118,18 @@ export default new Vuex.Store({
     getTimeOut({ commit }) {
       commit('setStatus', 'loading');
     },
+    // Check
+    getPing({ commit }) {
+      db.collection('check').get().then((docs) => {
+        commit('setStatus', 'success');
+        console.log('Connection: True');
+        
+        console.log(docs);
+      }).catch((error) => {
+        commit('setStatus', 'errorGetGroup');
+        commit('setError', error);
+        console.log(error);
+      });
+    },
   },
 });

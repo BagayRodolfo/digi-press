@@ -12,8 +12,9 @@
 export default {
   beforeMount() {
     this.$store.dispatch('initFirebaseWatch');
+    this.$store.dispatch('getPing');
   }
-}
+};
 </script>
 <style lang="scss">
 #app {
